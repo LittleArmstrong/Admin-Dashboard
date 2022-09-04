@@ -15,17 +15,63 @@ body {
    grid-template:
       "sidebar header" max-content
       "sidebar content" 1fr
-      / max-content 1fr;
+      / minmax(max-content, 300px) 1fr;
 }
 
 header {
    grid-area: header;
 }
 
-nav {
-   grid-area: sidebar;
-}
-
 main {
    grid-area: content;
+}
+
+nav {
+   background-color: #0ea5e9;
+   color: white;
+   display: grid;
+   grid-area: sidebar;
+   grid-template:
+      "header" max-content
+      "main-nav" max-content
+      "side-nav" 1fr / max-content;
+   height: 100vh;
+}
+
+nav header,
+nav ul {
+   margin-right: 20px;
+   margin-left: 20px;
+}
+
+nav ul {
+   font-size: 22px;
+   font-weight: bold;
+}
+
+nav h1 {
+   display: inline-block;
+   vertical-align: middle;
+}
+
+nav li {
+   margin-top: 20px;
+   margin-bottom: 20px;
+   list-style: none;
+}
+
+nav svg {
+   fill: white;
+}
+
+nav span.svg-container {
+   display: inline-block;
+   height: auto;
+   vertical-align: middle;
+   width: 48px;
+}
+
+nav ul span.svg-container {
+   padding: 0 12px;
+   vertical-align: middle;
 }
