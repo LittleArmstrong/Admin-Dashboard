@@ -13,8 +13,8 @@ html {
 body {
    display: grid;
    grid-template:
-      "sidebar header header" max-content
-      "sidebar content aside" 1fr
+      "sidebar header header" 165px
+      "sidebar content aside" minmax(380px, calc(100vh - 165px))
       / minmax(max-content, 300px) minmax(400px, 1fr) max-content;
    font-family: Roboto, sans-serif;
 }
@@ -28,6 +28,10 @@ header {
    padding: 10px 40px;
    row-gap: 10px;
    column-gap: 20px;
+}
+
+header div.welcome {
+   width: max-content;
 }
 
 header div.buttons {
@@ -111,7 +115,11 @@ main {
    background-color: #e2e8f0;
    padding-right: 20px;
    height: 1fr;
-   overflow-y: auto;
+   overflow-y: scroll;
+}
+
+main::-webkit-scrollbar {
+   display: none;
 }
 
 main svg {
@@ -122,8 +130,6 @@ main article.projects {
    display: grid;
    gap: 30px;
    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-   grid-template-rows: max-content;
-   grid-auto-rows: max-content;
 }
 
 main div.projects-container {
@@ -155,6 +161,11 @@ aside {
    width: 300px;
    background-color: #e2e8f0;
    padding-right: 20px;
+   overflow-y: scroll;
+}
+
+aside::-webkit-scrollbar {
+   display: none;
 }
 
 aside div.news-container {
